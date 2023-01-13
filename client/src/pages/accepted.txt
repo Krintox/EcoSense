@@ -1,9 +1,19 @@
-import {formatISO9075} from "date-fns";
+import React from 'react'
 import {Link} from "react-router-dom";
+import {formatISO9075} from "date-fns";
 
-export default function Post({_id,title,summary,accepted,cover,content,createdAt,author}) {
 
+const Accepted = ({_id,title,summary,accepted,cover,content,createdAt,author}) => {
   return (
+    <div>
+      {
+        accepted
+        ?
+        <p>Accepted</p>
+        :
+        <p>Not accepted</p>
+      }
+      Your
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
@@ -12,14 +22,17 @@ export default function Post({_id,title,summary,accepted,cover,content,createdAt
       </div>
       <div className="texts">
         <Link to={`/post/${_id}`}>
-        <h2 className="heading2">{title}</h2>
+        <h2>{title}</h2>
         </Link>
         <p className="info">
-          <a className="author">By {author.username}</a>
+          <a className="author">{author.username}</a>
           <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
         <p className="summary">{summary}</p>
       </div>
     </div>
-  );
+    </div>
+  )
 }
+
+export default Accepted

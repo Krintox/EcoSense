@@ -4,10 +4,8 @@ export const UserContext = createContext({});
 
 export function UserContextProvider({children}) {
   const [userInfo,setUserInfo] = useState({});
-  const [longitude, setLongitude] = useState('');
-  const [latitude, setLatitude] = useState('')
   return (
-    <UserContext.Provider value={{userInfo,setUserInfo,latitude,setLatitude,longitude,setLongitude}}>
+    <UserContext.Provider value={{userInfo,setUserInfo}}>
       {children}
     </UserContext.Provider>
   );

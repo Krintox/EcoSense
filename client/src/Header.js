@@ -26,18 +26,18 @@ export default function Header() {
 
   return (
     <header>
-      <Link to="/" className="logo">EcoSense</Link>
+      <Link to="/" className="logo">Eco<span>Sense</span></Link>
       <nav>
         {username && (
           <>
-            <Link to="/create">Create new post</Link>
-            <a onClick={logout}>Logout ({username})</a>
+            <Link to="/create" className="nav-icon">Post +</Link>
+            <a onClick={logout} className="nav-icon">Logout ({username})</a>
           </>
         )}
         {!username && (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login" className="nav-icon">Login</Link>
+            <Link to="/register" className="nav-icon">Register</Link>
           </>
         )}
       </nav>
