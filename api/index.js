@@ -59,6 +59,8 @@ app.post('/login', async (req,res) => {
   }
 });
 
+
+
 app.get('/profile', (req,res) => {
   const {token} = req.cookies;
   jwt.verify(token, secret, {}, (err,info) => {
@@ -139,6 +141,14 @@ app.get('/post/:id', async (req, res) => {
   const postDoc = await Post.findById(id).populate('author', ['username']);
   res.json(postDoc);
 })
+
+// app.put('/post/:{id}', async (req,res) => {
+//   const {id} = req.params;
+//   const post = Post.findByIdAndUpdate(
+//     id,
+
+//   )
+// })
 
 app.listen(4000, () => {
   console.log("Server started at port 4000");
